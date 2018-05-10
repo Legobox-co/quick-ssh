@@ -1,0 +1,28 @@
+{
+    "name": "legobox-co/quick-ssh",
+    "description": "ssh package for connecting to servers",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Chibuike Emmauel Osita",
+            "email": "mozart.osita@gmail.com"
+        }
+    ],
+	"require": {},
+	"autoload": {
+		"psr-0": {
+			"QuickTraitSsh\\Ssh": "src/"
+		}
+	},
+	"minimum-stability": "stable",
+	"extra": {
+		"laravel": {
+			"providers": [
+				"QuickSsh\\Ssh\\SshServiceProvider"
+			],
+			"aliases": {
+				"Cloudder": "QuickSsh\\Ssh\\Facades"
+			}
+		}
+	}
+}

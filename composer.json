@@ -8,7 +8,10 @@
             "email": "mozart.osita@gmail.com"
         }
     ],
-	"require": {},
+	"require": {
+		"php": "^7.1.3",
+		"codeaken/sshkey":"^1.2"
+	},
 	"autoload": {
 		"psr-0": {
 			"QuickTraitSsh\\Ssh": "src/"

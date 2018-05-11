@@ -8,7 +8,7 @@ use Codeaken\SshKey\SshKeyPair;
 use Codeaken\SshKey\SshPrivateKey;
 use Codeaken\SshKey\SshPublicKey;
 
-class CloudderServiceProvider extends ServiceProvider
+class SshServiceProvider extends ServiceProvider
 {
 
     /**
@@ -25,16 +25,16 @@ class CloudderServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $source = realpath(__DIR__.'/../../../config/cloudder.php');
+        $source = realpath(__DIR__.'/../../../config/quickssh.php');
 
         if (class_exists('Illuminate\Foundation\Application', false)) {
-            $this->publishes([$source => config_path('cloudder.php')]);
+            $this->publishes([$source => config_path('quickssh.php')]);
         }
-        $this->mergeConfigFrom($source, 'cloudder');
+        $this->mergeConfigFrom($source, 'quickssh');
 
-        $this->app['JD\Cloudder\Cloudder'] = function ($app) {
-            return $app['cloudder'];
-        };
+        // $this->app['QuickSsh\Ssh\Ssh'] = function ($app) {
+        //     return $app['quickssh'];
+        // };
     }
 
     /**
@@ -45,8 +45,8 @@ class CloudderServiceProvider extends ServiceProvider
     public function register()
     {
         $app = $this->app;
-        $this->app->singleton('cloudder', function () use ($app) {
-            return new CloudinaryWrapper($app['config'], new Cloudinary, new Cloudinary\Uploader, new Cloudinary\Api);
+        $this->app->singleton('quickssh', function () use ($app) {
+            return new SshService();
         });
     }
 
@@ -57,6 +57,6 @@ class CloudderServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array('cloudder');
+        return array('quickssh');
     }
 }

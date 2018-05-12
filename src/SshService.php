@@ -32,7 +32,7 @@ class SshService {
 		return new Pair::generate($config['keynum']);
 	}
 
-	public function connection(){
-
+	public function connector(array $connect){
+		return (new Connector($connect))->connect();
 	}
 }

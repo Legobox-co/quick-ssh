@@ -17,6 +17,11 @@ class SshService {
 	 */
 	public $app;
 
+	/**
+	 * Initailizing the class
+	 *
+	 * @param Container $app
+	 */
 	public function __construct(Container $app){
 		$this->app = $app;
 	}

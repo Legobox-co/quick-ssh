@@ -46,7 +46,7 @@ class SshServiceProvider extends ServiceProvider
     {
         $app = $this->app;
         $this->app->singleton('quickssh', function () use ($app) {
-            return new SshService();
+            return new SshService($app);
         });
     }
 

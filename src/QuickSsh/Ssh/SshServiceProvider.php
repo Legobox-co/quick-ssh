@@ -1,6 +1,6 @@
 <?php
 
-namespace QuickSsh\Ssh\;
+namespace QuickSsh\Ssh;
 
 use Illuminate\Support\ServiceProvider;
 use Codeaken\SshKey\SshKey;

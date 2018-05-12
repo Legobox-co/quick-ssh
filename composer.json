@@ -14,17 +14,17 @@
 	},
 	"autoload": {
 		"psr-0": {
-			"QuickTraitSsh\\Ssh": "src/"
+			"Legobox\\QuickSsh\\": "src/"
 		}
 	},
 	"minimum-stability": "stable",
 	"extra": {
 		"laravel": {
 			"providers": [
-				"QuickSsh\\Ssh\\SshServiceProvider"
+				"Legobox\\QuickSsh\\SshServiceProvider"
 			],
 			"aliases": {
-				"Cloudder": "QuickSsh\\Ssh\\Facades"
+				"QuickSsh": "Legobox\\QuickSsh\\Facades\\QuickSsh"
 			}
 		}
 	}

@@ -3,16 +3,15 @@
 namespace Legobox\QuickSsh;
 
 use Codeaken\SshKey\SshKeyPair;
-use Codeaken\SshKey\SshPublicKey;
-use Codeaken\SshKey\SshPrivateKey;
+use Legobox\QuickSsh\Key;
 
 class Pair {
 	public $publicKey;
 	private $privateKey;
 
 	public function __construct($privateKey, $publicKey){
-		$this->publicKey = $publicKey;
-		$this->privateKey = $privateKey;
+		$this->publicKey = new key($publicKey);
+		$this->privateKey = new Key($privateKey);
 	}
 
 	public function connectToServer($connection){

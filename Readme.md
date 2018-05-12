@@ -16,7 +16,8 @@ $keys->privateKey // return the private key
 #### Connect to a server
 ```php
 use QuickSsh;
-$serverInstance = QuickSsh::connection($key, $serverOptions);
+// server options host, keytext, username
+$serverInstance = QuickSsh::connector($serverOptions);
 ```
 
 #### Run a Process

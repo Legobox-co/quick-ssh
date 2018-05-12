@@ -2,10 +2,6 @@
 
 namespace Legobox\QuickSsh;
 
-use Codeaken\SshKey\SshKey;
-use Codeaken\SshKey\SshKeyPair;
-use Codeaken\SshKey\SshPublicKey;
-use Codeaken\SshKey\SshPrivateKey;
 use Illuminate\Support\ServiceProvider;
 
 class SshServiceProvider extends ServiceProvider
@@ -46,7 +42,7 @@ class SshServiceProvider extends ServiceProvider
     {
         $app = $this->app;
         $this->app->singleton('quickssh', function () use ($app) {
-            return new SshService($app);
+            return new SshService($app, config('quickssh'));
         });
     }
 
@@ -57,6 +53,6 @@ class SshServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return array('quickssh');
+        return ['quickssh'];
     }
 }

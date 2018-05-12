@@ -2,11 +2,12 @@
 
 namespace Legobox\QuickSsh;
 
+
 use Illuminate\Contracts\Container\Container;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Console\Output\ConsoleOutput;
 /**
- * Running all ssh services, Creati
+ * Running all ssh services
  */
 class SshService {
 
@@ -22,9 +23,16 @@ class SshService {
 	 *
 	 * @param Container $app
 	 */
-	public function __construct(Container $app){
+	public function __construct(Container $app, $config){
 		$this->app = $app;
 	}
 
+	public function createKeys(){
+		// create a new ssh key for the system
+		return new Pair::generate($config['keynum']);
+	}
 
+	public function connection(){
+
+	}
 }

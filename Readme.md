@@ -11,7 +11,7 @@ $ composer require legobox-co/quick-ssh
 Next, proceed to register the service provider in order to have the package visible to your app.
 In config/app.php, alongside it's facade for easy accessibility
 
-```
+```php
 <?php
 ...
 return [
@@ -31,7 +31,7 @@ return [
 
 Next you can proceed to publish the configuration so you can change the defaults.
 
-```
+```bash
 $ php artisan vendor:publish --provider="Legobox\QuickSsh\SshServiceProvider"
 ```
 

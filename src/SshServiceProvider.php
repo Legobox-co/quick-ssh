@@ -1,12 +1,12 @@
 <?php
 
-namespace QuickSsh\Ssh;
+namespace Legobox\QuickSsh;
 
-use Illuminate\Support\ServiceProvider;
 use Codeaken\SshKey\SshKey;
 use Codeaken\SshKey\SshKeyPair;
-use Codeaken\SshKey\SshPrivateKey;
 use Codeaken\SshKey\SshPublicKey;
+use Codeaken\SshKey\SshPrivateKey;
+use Illuminate\Support\ServiceProvider;
 
 class SshServiceProvider extends ServiceProvider
 {
@@ -25,7 +25,7 @@ class SshServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $source = realpath(__DIR__.'/../../../config/quickssh.php');
+        $source = realpath(__DIR__.'/../config/quickssh.php');
 
         if (class_exists('Illuminate\Foundation\Application', false)) {
             $this->publishes([$source => config_path('quickssh.php')]);

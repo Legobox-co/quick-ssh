@@ -56,19 +56,7 @@ $serverInstance = QuickSsh::connector($serverOptions)->connect();
 ```
 
 #### Run a Process
-
-```php
-use QuickSsh;
-
-$serverInstance->run($commandstring);
-$serverInstance->run($commandstrings[]);
-
-$serverInstance->run($commandstring)->tail('dir');
-
-```
-
 To run commands on your default remote connection, use the run method on your instance:
-
 ```php
 $serverInstance->run([
     'cd /var/www',
@@ -108,17 +96,16 @@ $serverInstance->task('deploy', function($line)
 
 ### SFTP Downloads
 The instance includes a simple way to download files using the get and getString methods:
-
+```php
 $serverInstance->get($remotePath, $localPath);
 
-$contents = SSH::into('staging')->getString($remotePath);
-
-SFTP Uploads
+$contents = $serverInstance->getString($remotePath);
+```
+## SFTP Uploads
 The SSH class also includes a simple way to upload files, or even strings, to the server using the put and putString methods:
 
 ```php
 $serverInstance->put($localFile, $remotePath);
-
 $serverInstance->putString($remotePath, 'Foo');
 ```
 

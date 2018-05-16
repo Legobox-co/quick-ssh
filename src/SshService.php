@@ -17,6 +17,13 @@ class SshService {
 	 * @var [Illuminate\Contracts\Container\Container]
 	 */
 	public $app;
+	
+	/**
+	 * variable for configs
+	 *
+	 * @var [type]
+	 */
+	public $config;
 
 	/**
 	 * Initailizing the class
@@ -25,11 +32,12 @@ class SshService {
 	 */
 	public function __construct(Container $app, $config){
 		$this->app = $app;
+		$this->config = $config;
 	}
 
 	public function createKeys(){
 		// create a new ssh key for the system
-		return new Pair::generate($config['keynum']);
+		return Pair::generate($this->config['keynum']);
 	}
 
 	public function connector(array $connect){

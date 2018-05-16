@@ -2,12 +2,12 @@
 
 namespace Legobox\QuickSsh;
 
-use Codeaken\SshKey\SshKeyPair;
 use Legobox\QuickSsh\Key;
+use Codeaken\SshKey\SshKeyPair;
 
 class Pair {
 	public $publicKey;
-	private $privateKey;
+	public $privateKey;
 
 	public function __construct($privateKey, $publicKey){
 		$this->publicKey = new key($publicKey);

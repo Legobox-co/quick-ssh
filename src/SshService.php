@@ -2,7 +2,6 @@
 
 namespace Legobox\QuickSsh;
 
-
 use Illuminate\Contracts\Container\Container;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Console\Output\ConsoleOutput;
@@ -10,7 +9,6 @@ use Symfony\Component\Console\Output\ConsoleOutput;
  * Running all ssh services
  */
 class SshService {
-
 	/**
 	 * Illuminate App instance
 	 *

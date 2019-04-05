@@ -8,30 +8,34 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 class Connector {
 
-	private $connectVariable;
+    private $connectVariable;
+    protected $config;
 
-	public function __construct($connectVariables){
-		$this->connectVariable = $connectVariable;
+	public function __construct($connectVariable){
+        $this->connectVariable = $connectVariable;
 	}
 
 	private function getAuth($value){
-		if (isset($config['key']) && trim($config['key']) != '') {
-            return ['keytext' => $config['key']];
-        } elseif (isset($config['password'])) {
-            return ['password' => $config['password']];
+		if (isset($value['keytext']) && trim($value['keytext']) != '') {
+            return ['keytext' => $value['keytext']];
+        } elseif (isset($value['password'])) {
+            return ['password' => $value['password']];
         }
 
         throw new \InvalidArgumentException('Password / key is required.');
 	}
 
-	protected function connect()
+	public function connect()
     {
         $timeout = isset($this->connectVariable['timeout']) ? $this->connectVariable['timeout'] : 20;
 
         $this->setOutput($connection = new Connection(
-
-            $this->connectVariable['host'], $this->connectVariable['host'], $this->connectVariable['username'], $this->getAuth($this->connectVariable), null, $timeout
-
+            $this->connectVariable['host'], 
+            $this->connectVariable['host'], 
+            $this->connectVariable['username'], 
+            $this->getAuth($this->connectVariable), 
+            null, 
+            $timeout
         ));
 
         return $connection;
